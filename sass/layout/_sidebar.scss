@@ -1,0 +1,104 @@
+.sidebar {
+  background-color: $grey-dark-1;
+
+  // 0 - флекс элементу запрещено увеличиваться, 1 - разрешено (flex-grow)
+  // 0 - флекс элементу запрещено уменьшаться, 1 - разрешено (flex-shrink)
+  // 20% - столько места будет занимать флекс элемент относительно родителя (flex-basis)
+  display: flex;
+  flex: 0 0 18%;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__navigation {
+    margin-top: 3rem;
+
+    @media only screen and (max-width: $bp-medium) {
+      display: flex;
+      margin-top: 0;
+    }
+  }
+
+  &__item {
+    position: relative;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: $grey-light-1;
+    cursor: pointer;
+
+    @media only screen and (max-width: $bp-medium) {
+      flex: 1;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+
+      @media only screen and (max-width: $bp-medium) {
+        margin-bottom: 0;
+      }
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: .3rem;
+      height: 100%;
+      background-color: $primary;
+      transform: scaleY(0);
+      transition: // для трансформа время выполнения - 0.2s
+              transform .2s,
+                // для ширины время выполнения - 0.4s и с задержкой в 0.2s
+              width .4s cubic-bezier(1, 0, 0, 1) .2s;
+    }
+
+    // при наведении на before элемент, меняем ему свойства
+    &:hover:before,
+    &--active:before {
+      transform: scaleY(1);
+      width: 100%;
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    position: relative;
+    z-index: 10;
+
+    @media only screen and (max-width: $bp-medium) {
+      padding: 2rem;
+      justify-content: center;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+      padding: 1rem;
+    }
+  }
+
+  &__icon {
+    height: 2.4rem;
+    width: 2.4rem;
+    fill: currentColor; // тот же цвет что и у родителя
+    margin-right: 2rem;
+
+    @media only screen and (max-width: $bp-small) {
+      margin-right: 0;
+      margin-bottom: .7rem;
+    }
+  }
+
+  &__copyright {
+    text-align: center;
+    color: $grey-light-4;
+    width: 75%;
+    margin: 3rem auto;
+    font-size: 1.2rem;
+
+    @media only screen and (max-width: $bp-medium) {
+      display: none;
+    }
+  }
+}

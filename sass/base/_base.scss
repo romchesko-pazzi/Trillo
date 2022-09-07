@@ -1,0 +1,32 @@
+/*Зануление стилей браузера*/
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  @media only screen and (max-width: $bp-large) {
+    font-size: 56.25%;
+  }
+  @media only screen and (max-width: $bp-small) {
+    font-size: 45%;
+  }
+
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: $grey-dark-2;
+  background-image: linear-gradient(to right bottom, rgba(255, 0, 72, 0.8), rgba(181, 0, 67, 0.8));
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}

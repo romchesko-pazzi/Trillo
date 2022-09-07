@@ -1,0 +1,269 @@
+.hotel-view {
+  flex: 1;
+}
+
+.gallery {
+  display: flex;
+
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.overview {
+  display: flex;
+  align-items: center;
+  border-bottom: .1rem $grey-light-3 solid;
+  background-color: white;
+
+  &__heading {
+    font-size: 2.25rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
+  }
+
+  &__rating {
+    margin-right: auto;
+    display: flex;
+  }
+
+  &__icon-star,
+  &__icon-pin {
+    width: 2rem;
+    height: 2rem;
+    fill: $primary;
+
+    @media only screen and (max-width: $bp-small) {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+  }
+
+  &__location {
+    display: flex;
+    align-items: center;
+  }
+
+  &__votes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+
+    background-color: $primary;
+    padding: 1rem 2.25rem;
+    color: #fff;
+    margin-left: 2rem;
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 0 1.5rem;
+    }
+
+    &-average {
+      font-size: 2.25rem;
+      font-weight: 300;
+
+      @media only screen and (max-width: $bp-small) {
+        font-size: 1.8rem;
+      }
+    }
+
+    &-count {
+      font-size: .9rem;
+      text-transform: uppercase;
+
+      @media only screen and (max-width: $bp-small) {
+        font-size: .6rem;
+      }
+    }
+  }
+}
+
+.detail {
+  display: flex;
+  padding: 4.5rem;
+  background-color: $grey-light-1;
+  font-size: 1.4rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 3rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column
+  }
+}
+
+.description {
+  flex: 0 0 60%;
+  background-color: #fff;
+  margin-right: 4.5rem; // такой же как паддинг у родителя
+  padding: 3rem;
+  box-shadow: $shadow-light;
+
+  @media only screen and (max-width: $bp-medium) {
+    margin-right: 3rem;
+    padding: 2rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    margin-right: 0;
+    margin-bottom: 3rem;
+  }
+}
+
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+
+.list {
+  display: flex;
+
+  // разрешить перемещение элемента на другую строку
+  // когда они перестают помещаться внутри flex-container
+  flex-wrap: wrap;
+
+  list-style: none;
+  margin: 3rem 0;
+  padding: 3rem 0;
+  border-top: $line;
+  border-bottom: $line;
+
+  &__item {
+    flex: 0 0 50%;
+    margin-bottom: .7rem;
+
+    &:before {
+      display: inline-block;
+      content: "";
+      width: 1rem;
+      height: 1rem;
+      margin-right: .7rem;
+      background-color: $primary;
+
+      // добавляем svg
+      -webkit-mask-image: url("../img/SVG/chevron-thin-right.svg");
+      -webkit-mask-size: cover;
+    }
+  }
+}
+
+.recommend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  color: $grey-dark-3;
+
+  &__friends {
+    display: flex;
+  }
+
+  &__photo {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    outline-offset: -.1rem;
+    outline: .3rem white solid;
+
+    &:not(:last-child) {
+      margin-right: -1.5rem;
+    }
+  }
+}
+
+.user-reviews {
+  flex: 1; // позволяет элементу увеличиваться и уменьшаться -> занимает всю оставшуюся часть
+}
+
+.review {
+  position: relative;
+  background-color: #fff;
+  box-shadow: $shadow-light;
+  margin-bottom: 4rem;
+  padding: 3rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    margin-bottom: 3rem;
+    padding: 2rem;
+  }
+
+  &__text {
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 5;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+  }
+
+  &__photo {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+  }
+
+  &__user-box {
+    margin-right: auto;
+
+    p:first-child {
+      text-transform: uppercase;
+      margin-bottom: .4rem;
+      font-weight: bold;
+    }
+
+    p:last-child {
+      font-size: 1rem;
+      color: $grey-dark-3;
+    }
+  }
+
+  &__count {
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: $primary;
+  }
+
+  &:before {
+    content: "\201C"; // добавляем кавычки
+    position: absolute;
+    top: 7rem;
+    left: -1rem;
+    line-height: 1rem;
+    font-size: 20rem;
+    color: $grey-light-2;
+    font-family: sans-serif;
+    z-index: 4;
+  }
+}
+
+.cta {
+  text-align: center;
+  padding: 3.5rem 0;
+  border-top: $line;
+  background-color: #fff;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2.5rem 0;
+  }
+
+  &__heading {
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+  }
+}
